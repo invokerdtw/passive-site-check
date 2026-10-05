@@ -1,0 +1,15 @@
+{
+  "name": "site-check-tools",
+  "owner": {
+    "name": "PeterChung-TW",
+    "url": "https://github.com/PeterChung-TW"
+  },
+  "description": "被動網站資安健檢工具",
+  "plugins": [
+    {
+      "name": "passive-site-check",
+      "source": "./plugins/passive-site-check",
+      "description": "輸入網址，輸出紅黃綠燈白話資安健檢報告（只送 GET、不測金鑰）"
+    }
+  ]
+}
