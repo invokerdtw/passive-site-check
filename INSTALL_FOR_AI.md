@@ -11,7 +11,8 @@ Repo：`https://github.com/PeterChung-TW/passive-site-check`
 |---|---|
 | Claude Code（你能執行 shell 指令，而且有 `claude` 指令） | A |
 | claude.ai 網頁版或桌面 App（不能在使用者電腦上執行指令） | B |
-| 其他 AI 工具 | C |
+| Codex（OpenAI Codex CLI／App） | C |
+| 其他 AI 工具 | D |
 
 ## A. Claude Code：你自己裝
 
@@ -49,7 +50,29 @@ Repo：`https://github.com/PeterChung-TW/passive-site-check`
 
 網頁版能不能直接連到網站，要看帳號環境。skill 會自動在三種模式之間切換，並在報告開頭寫明用了哪一種。
 
-## C. 其他 AI 工具
+## C. Codex：你自己裝
+
+Codex 讀的是同一種 SKILL.md 格式，把 skill 資料夾放進 Codex 的 skills 目錄就能用。
+
+1. 下載 repo，把 skill 資料夾複製到 Codex 的 skills 目錄（預設在 `~/.codex/skills/`；有設 `CODEX_HOME` 的話，放在 `$CODEX_HOME/skills/`）：
+   ```bash
+   git clone --depth 1 https://github.com/PeterChung-TW/passive-site-check.git /tmp/passive-site-check
+   mkdir -p ~/.codex/skills
+   cp -r /tmp/passive-site-check/plugins/passive-site-check/skills/site-security-check ~/.codex/skills/
+   ```
+   Windows PowerShell 請改用：
+   ```powershell
+   git clone --depth 1 https://github.com/PeterChung-TW/passive-site-check.git $env:TEMP\passive-site-check
+   New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
+   Copy-Item -Recurse "$env:TEMP\passive-site-check\plugins\passive-site-check\skills\site-security-check" "$HOME\.codex\skills\"
+   ```
+2. 驗證：確認 `~/.codex/skills/site-security-check/SKILL.md` 和 `probe.py` 都在。
+3. 告訴使用者：
+   - 要**重新開一個 Codex session**，skill 才會載入。
+   - Codex 沙箱預設可能不能連外網。檢查時 Codex 會請你核准網路存取，這是正常的。
+   - 用法：「幫我資安健檢 https://你的網站」。
+
+## D. 其他 AI 工具
 
 - 這個 skill 的判讀規則寫在 `plugins/passive-site-check/skills/site-security-check/SKILL.md`。
 - 檢查程式是同資料夾的 `probe.py`（Python 3，只送 GET）。

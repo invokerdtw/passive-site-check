@@ -12,7 +12,7 @@
 
 ## 最快的安裝方式：交給 AI
 
-把這個網址貼給 Claude（Claude Code 或 claude.ai 都可以），說一句「幫我裝」：
+把這個網址貼給 AI（Claude Code、claude.ai、Codex 都可以），說一句「幫我裝」：
 
 ```
 https://github.com/PeterChung-TW/passive-site-check
@@ -30,6 +30,8 @@ AI 會讀 [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md)，判斷你用的是哪個環�
 ```
 
 需要 Python 3，只用標準函式庫，不必另外裝套件。
+
+**Codex**：把 `plugins/passive-site-check/skills/site-security-check/` 整個資料夾複製到 `~/.codex/skills/`，重開 Codex。
 
 **claude.ai**：
 1. 下載 [`claude-ai/site-security-check.zip`](claude-ai/site-security-check.zip)，不要解壓縮。
@@ -93,7 +95,7 @@ How it works:
 - It never scans, logs in, or submits forms.
 - The result is a red/yellow/green report written by Claude.
 
-**Install**: give this repo URL to Claude and say "install this". Claude will follow [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md). You can also run the manual commands listed above.
+**Install**: give this repo URL to Claude Code, claude.ai or Codex and say "install this". Claude will follow [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md). You can also run the manual commands listed above.
 
 **Use only on sites you own or are authorized to test.** This is not a penetration test.
 

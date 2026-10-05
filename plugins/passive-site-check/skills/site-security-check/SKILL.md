@@ -1,7 +1,7 @@
 ---
 name: site-security-check
 description: 對「已上線網站」做被動資安健檢，輸出紅黃綠燈白話報告：.git／.env 等檔案外洩、前端 JS 裡的 API 金鑰、缺少的安全標頭、外部腳本 SRI、混合內容、Firebase／Supabase 權限疑慮、提示注入文字。只送 GET、請求數有上限、不測金鑰。使用者說「資安健檢」「檢查我的網站安全」「security check my site」並給網址時使用。
-argument-hint: <網址>
+license: MIT
 ---
 
 # 網站被動資安健檢（Claude Code 版）
@@ -9,10 +9,13 @@ argument-hint: <網址>
 ## 流程
 
 1. **授權確認**：照下方第 0 節。沒有確認就不往下做。
-2. **跑探測腳本**：本 skill 附帶 `probe.py`（只用 Python 標準函式庫）。執行：
+2. **跑探測腳本**：本 skill 附帶 `probe.py`（只用 Python 標準函式庫），就放在這份 SKILL.md 的同一個資料夾。執行：
    ```
-   python3 "${CLAUDE_SKILL_DIR}/probe.py" <網址>
+   python3 "<本 SKILL.md 所在資料夾>/probe.py" <網址>
    ```
+   - Claude Code 可以直接寫成 `"${CLAUDE_SKILL_DIR}/probe.py"`。
+   - Codex 等其他工具：用這份 SKILL.md 的實際路徑，例如 `~/.codex/skills/site-security-check/probe.py`。
+   - 執行環境預設不能連外網時（例如 Codex 沙箱），要請使用者核准這一次的網路存取，不要改用其他方式硬連。
    - 結果會直接印成 JSON，不寫暫存檔，所以事後不必清理。
    - 沒有 `python3` 就改用 `python`。
    - 預設請求上限 60，可加 `--max-requests N` 調整，但不得超過 200。
