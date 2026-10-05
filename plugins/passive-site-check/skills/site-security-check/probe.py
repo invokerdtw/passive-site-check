@@ -27,7 +27,7 @@ import urllib.parse
 import urllib.request
 from html.parser import HTMLParser
 
-VERSION = "0.4.1"
+VERSION = "0.4.2"
 USER_AGENT = f"passive-site-check/{VERSION} (passive self-check; GET only)"
 MAX_BODY = 2 * 1024 * 1024          # 每個回應最多讀 2 MB
 TIMEOUT = 12                        # 單次 socket 操作逾時

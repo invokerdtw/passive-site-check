@@ -1,7 +1,7 @@
 # 網站被動資安健檢（passive-site-check）
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.4.1-brightgreen.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.4.2-brightgreen.svg)](CHANGELOG.md)
 [![zh-TW](https://img.shields.io/badge/zh--TW-Taiwan-e4002b.svg)](plugins/passive-site-check/skills/site-security-check/SKILL.md)
 
 給一個網址，Claude 會對網站做一次**被動**資安檢查，再寫成紅黃綠燈的白話報告。每一項都附位置、證據和修法。
@@ -37,6 +37,8 @@ AI 會讀 [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md)，判斷你用的是哪個環�
 1. 下載 [`claude-ai/site-security-check.zip`](claude-ai/site-security-check.zip)，不要解壓縮。
 2. 在 Settings → Capabilities 開啟 Code execution。
 3. 在 Skills 區上傳那個 zip。
+
+> claude.ai 實測（免費帳號）：程式碼環境只能連白名單網域，抓取工具不接受自己組的網址，所以多半只能做部分檢查，剩下的會請你貼網址或標頭。要完整檢查請用 Claude Code 或 Codex。
 
 ## 使用
 

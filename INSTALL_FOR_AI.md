@@ -49,6 +49,7 @@ Repo：`https://github.com/PeterChung-TW/passive-site-check`
 4. 開新對話，說「幫我資安健檢 https://你的網站」。
 
 網頁版能不能直接連到網站，要看帳號環境。skill 會自動在三種模式之間切換，並在報告開頭寫明用了哪一種。
+實測（免費帳號）：程式碼環境只能連白名單網域、抓取工具不接受自組網址，多半只能部分檢查；請事先告訴使用者，要完整檢查改用 Claude Code 或 Codex。
 
 ## C. Codex：你自己裝
 
