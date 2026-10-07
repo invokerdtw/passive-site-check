@@ -1,18 +1,27 @@
+[繁體中文](CHANGELOG.zh-TW.md) | English
+
 # Changelog
+
+## 0.5.0 — 2026-10-07
+
+- The report now follows the user's language: ask in English and you get an English report; ask in Chinese and you get Traditional Chinese (Taiwan); other languages get that language; English when it can't tell. You can also name the language explicitly, for example "in English".
+- `probe.py` messages (warnings, reasons, help text) are now in English. Detection logic, the GET-only rule, and the request cap are unchanged.
+- Plugin and marketplace descriptions are now bilingual.
+- The documentation (README, INSTALL_FOR_AI, CHANGELOG) now comes as separate English and Traditional Chinese files. Each file has a language switch on its first line, and links between documents stay in the same language.
 
 ## 0.4.2 — 2026-10-05
 
-- 有重要項目沒檢查到時（安全標頭、同站 JS、公開路徑），報告第一行改標「部分完成：N 項未檢查」，不再看起來像全部沒問題。
-- 補上 claude.ai 免費帳號的實測結果：程式碼環境只能連白名單網域，抓取工具不接受自己組的網址，多半只能做部分檢查。
+- When important items could not be checked (security headers, same-site JS, public paths), the first line of the report now says "partial: N items not checked" instead of looking like everything passed.
+- Added test results for claude.ai free accounts: the code environment can only reach allowlisted domains and the fetch tool rejects URLs it builds itself, so usually only a partial check is possible.
 
 ## 0.4.1 — 2026-10-05
 
-首次公開版本。
+First public release.
 
-- Claude Code plugin、claude.ai skill、Codex skill 三種安裝方式，共用同一份判讀規則。
-- 被動檢查：公開檔案（`.git`／`.env`／source map）、前端金鑰、安全標頭、SRI、混合內容、Firebase／Supabase、隱私去向、提示注入。
-- 安全設計：
-  - 只送 GET，請求數與總時間有上限。
-  - 轉址只跟同一個網站，擋 `file://` 等非 HTTP 協定。
-  - 輸出裡的金鑰一律遮罩，只留前 6 碼。
-  - 判定檔案外洩靠內容比對，不看狀態碼。
+- Three ways to install (Claude Code plugin, claude.ai skill, Codex skill), all sharing the same interpretation rules.
+- Passive checks: public files (`.git`, `.env`, source maps), frontend keys, security headers, SRI, mixed content, Firebase/Supabase, where data goes, prompt injection.
+- Safety design:
+  - GET only, with caps on request count and total time.
+  - Redirects are followed only within the same site; `file://` and other non-HTTP schemes are blocked.
+  - Keys in the output are always masked, keeping only the first 6 characters.
+  - File exposure is decided by matching content, not by status code.

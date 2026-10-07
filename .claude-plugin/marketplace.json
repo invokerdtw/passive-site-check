@@ -1,15 +1,15 @@
 {
   "name": "site-check-tools",
   "owner": {
-    "name": "PeterChung-TW",
-    "url": "https://github.com/PeterChung-TW"
+    "name": "invokerdtw",
+    "url": "https://github.com/invokerdtw"
   },
-  "description": "被動網站資安健檢工具",
+  "description": "Passive website security check tools / 被動網站資安健檢工具",
   "plugins": [
     {
       "name": "passive-site-check",
       "source": "./plugins/passive-site-check",
-      "description": "輸入網址，輸出紅黃綠燈白話資安健檢報告（只送 GET、不測金鑰）"
+      "description": "Give a URL, get a plain-language red/yellow/green security report in your language (GET only, keys never tested) / 輸入網址，輸出紅黃綠燈白話資安健檢報告，語言跟隨使用者（只送 GET、不測金鑰）"
     }
   ]
 }

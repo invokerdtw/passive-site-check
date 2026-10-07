@@ -1,8 +1,10 @@
+繁體中文 | [English](README.en.md)
+
 # 網站被動資安健檢（passive-site-check）
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.4.2-brightgreen.svg)](CHANGELOG.md)
-[![zh-TW](https://img.shields.io/badge/zh--TW-Taiwan-e4002b.svg)](plugins/passive-site-check/skills/site-security-check/SKILL.md)
+[![Version](https://img.shields.io/badge/version-0.5.0-brightgreen.svg)](CHANGELOG.zh-TW.md)
+[![報告語言](https://img.shields.io/badge/%E5%A0%B1%E5%91%8A%E8%AA%9E%E8%A8%80-%E8%B7%9F%E9%9A%A8%E6%8F%90%E5%95%8F-blue.svg)](#使用)
 
 給一個網址，Claude 會對網站做一次**被動**資安檢查，再寫成紅黃綠燈的白話報告。每一項都附位置、證據和修法。
 
@@ -15,17 +17,17 @@
 把這個網址貼給 AI（Claude Code、claude.ai、Codex 都可以），說一句「幫我裝」：
 
 ```
-https://github.com/PeterChung-TW/passive-site-check
+https://github.com/invokerdtw/passive-site-check
 ```
 
-AI 會讀 [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md)，判斷你用的是哪個環境，然後幫你裝好或帶你一步步裝。
+AI 會讀 [INSTALL_FOR_AI.zh-TW.md](INSTALL_FOR_AI.zh-TW.md)，判斷你用的是哪個環境，然後幫你裝好或帶你一步步裝。
 
 ## 手動安裝
 
 **Claude Code**：
 
 ```
-/plugin marketplace add PeterChung-TW/passive-site-check
+/plugin marketplace add invokerdtw/passive-site-check
 /plugin install passive-site-check@site-check-tools
 ```
 
@@ -43,6 +45,8 @@ AI 會讀 [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md)，判斷你用的是哪個環�
 ## 使用
 
 對 Claude 說：「幫我資安健檢 https://my-site.example」
+
+報告語言跟著你的提問走：用中文問就出台灣繁體中文報告，用英文問（"security check my site https://my-site.example"）就出英文報告，其他語言照該語言。也可以直接說「用中文」或 "in English" 指定。
 
 ## 會查什麼
 
@@ -74,33 +78,12 @@ plugins/passive-site-check/              plugin 本體
       ├ SKILL.md                          判讀規則與報告格式
       └ probe.py                          被動檢查程式（Python 標準函式庫）
 claude-ai/site-security-check.zip        claude.ai 上傳用
-INSTALL_FOR_AI.md                        給 AI 讀的安裝說明
+INSTALL_FOR_AI.zh-TW.md                  給 AI 讀的安裝說明（英文版：INSTALL_FOR_AI.md）
+CHANGELOG.zh-TW.md                       版本紀錄（英文版：CHANGELOG.md）
 ```
 
 `probe.py` 可以單獨執行：`python3 probe.py https://my-site.example`，結果會印成 JSON。
 
----
-
-## English
-
-Passive security health check for a live website.
-
-It checks for:
-- Exposed `.git` / `.env` / source maps.
-- API keys leaked in frontend JS (masked; never tested).
-- Missing security headers, missing SRI, and mixed content.
-- Firebase / Supabase exposure hints.
-- Prompt-injection text hidden in the page.
-
-How it works:
-- It only sends plain GET requests, capped at 60 by default, with a 3-minute limit.
-- It never scans, logs in, or submits forms.
-- The result is a red/yellow/green report written by Claude.
-
-**Install**: give this repo URL to Claude Code, claude.ai or Codex and say "install this". Claude will follow [INSTALL_FOR_AI.md](INSTALL_FOR_AI.md). You can also run the manual commands listed above.
-
-**Use only on sites you own or are authorized to test.** This is not a penetration test.
-
-## License
+## 授權
 
 [MIT](LICENSE)

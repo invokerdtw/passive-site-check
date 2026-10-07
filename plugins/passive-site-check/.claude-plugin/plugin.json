@@ -1,20 +1,21 @@
 {
   "name": "passive-site-check",
-  "displayName": "網站被動資安健檢",
-  "version": "0.4.2",
-  "description": "對已上線網站做被動資安健檢：檔案外洩、前端金鑰、安全標頭、SRI、提示注入；AI 判讀出白話報告。",
+  "displayName": "Passive Site Security Check / 網站被動資安健檢",
+  "version": "0.5.0",
+  "description": "Passive security check for a live website: exposed files, frontend API keys, security headers, SRI, prompt injection. The AI writes a plain-language report in the user's language. / 對已上線網站做被動資安健檢：檔案外洩、前端金鑰、安全標頭、SRI、提示注入；AI 判讀出白話報告，語言跟隨使用者。",
   "author": {
-    "name": "PeterChung-TW",
-    "url": "https://github.com/PeterChung-TW"
+    "name": "invokerdtw",
+    "url": "https://github.com/invokerdtw"
   },
-  "homepage": "https://github.com/PeterChung-TW/passive-site-check",
-  "repository": "https://github.com/PeterChung-TW/passive-site-check",
+  "homepage": "https://github.com/invokerdtw/passive-site-check",
+  "repository": "https://github.com/invokerdtw/passive-site-check",
   "license": "MIT",
   "keywords": [
     "security",
     "website",
     "passive",
     "audit",
+    "multilingual",
     "資安"
   ]
 }
